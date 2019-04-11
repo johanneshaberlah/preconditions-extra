@@ -55,7 +55,8 @@ import java.util.function.Predicate;
  * </code>
  * </pre>
  *
- * Next example. We would like to check an argument. The argument should just contain letters from A to Z.
+ * Next example. We would like to check an argument. The argument should just contain letters from A
+ * to Z.
  *
  * <pre>
  * <@code>
@@ -119,17 +120,17 @@ public final class MorePreconditions {
    * Validate arguments using Predicates
    *
    * @param predicate The predicate used to test the argument
-   * @param objects The arguments to test
+   * @param array Objects to check
    * @return objects
    */
-  public static Object[] checkArguments(Predicate<Object> predicate, Object... objects) {
-    for (Object obj : objects) {
-      if (predicate.test(obj)) {
+  public static <T> T[] checkArguments(Predicate<T> predicate, T... array) {
+    for (T t : array) {
+      if (predicate.test(t)) {
         continue;
       }
       throw new IllegalArgumentException();
     }
-    return objects;
+    return array;
   }
 
   /**
