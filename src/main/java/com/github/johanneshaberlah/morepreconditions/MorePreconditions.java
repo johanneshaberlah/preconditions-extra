@@ -66,7 +66,9 @@ import java.util.function.Predicate;
  * </@code>
  * </pre>
  */
-public class MorePreconditions {
+public final class MorePreconditions {
+
+  private MorePreconditions() {}
 
   /**
    * Ensures that an argument is not null.
