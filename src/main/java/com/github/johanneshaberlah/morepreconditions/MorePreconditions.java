@@ -94,9 +94,10 @@ public final class MorePreconditions {
    * @throws NullPointerException
    * @return references
    */
-  public static Object[] checkNotNull(Object... references) {
+  public static Object[] checkManyNotNull(Object... references) {
     for (Object reference : references) {
-      checkNotNull(reference);
+      if (reference != null) continue;
+      throw new IllegalArgumentException();
     }
     return references;
   }
